@@ -1,0 +1,136 @@
+# ============================================
+# Flora's Git Configuration
+# ============================================
+
+[user]
+	name = Flora
+	email = alexye0602@gmail.com
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[url "git@git.com"]
+	insteadOf = https://github.com
+
+# ============================================
+# 核心配置
+# ============================================
+
+[core]
+	autocrlf = input
+	editor = vim
+	# 如果安装了 delta，可以取消注释下面一行
+	# pager = delta
+
+[init]
+	defaultBranch = main
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[pull]
+	rebase = true
+
+[rerere]
+	enabled = true
+
+# ============================================
+# 别名配置
+# ============================================
+
+[alias]
+	# 状态和信息
+	st = status -sb
+	s = status
+	df = diff
+	dfs = diff --staged
+	lg = log --oneline --graph --decorate --all
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	last = log -1 HEAD --stat
+
+	# 分支操作
+	co = checkout
+	cob = checkout -b
+	br = branch
+	brd = branch -D
+	brm = branch -M
+
+	# 提交操作
+	cm = commit
+	cma = commit --amend
+	cmn = commit --amend --no-edit
+
+	# 暂存操作
+	a = add
+	aa = add -A
+	unstage = reset HEAD --
+
+	# 远程操作
+	f = fetch
+	fa = fetch --all
+	pl = pull
+	ps = push
+	psf = push --force-with-lease
+
+	# 暂存（stash）
+	stash-all = stash push -u -m
+	stash-list = stash list --format='%C(yellow)%h%C(reset) %gs (%C(blue)%cr%C(reset))'
+
+	# 清理
+	clean-all = clean -fd
+	prune = remote prune origin
+
+	# 标签
+	tag-list = tag -l --sort=-v:refname
+
+	# 工作树
+	wt = worktree
+
+# ============================================
+# Delta 配置（更好的 diff 显示）
+# ============================================
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
+# ============================================
+# 颜色配置
+# ============================================
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow bold
+	local = green
+	remote = cyan
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+
+# ============================================
+# 排除文件
+# ============================================
+
+[exclude]
+	# 全局 gitignore
+	file = ~/.gitignore_global

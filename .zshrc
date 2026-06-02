@@ -1,81 +1,19 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# ============================================
+# Flora's Zsh Configuration
+# ============================================
 
-# Path to your Oh My Zsh installation.
+# Oh My Zsh 路径
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-# git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-ZSH_THEME="spaceship"
+# 主题：使用 starship（在文件末尾初始化）
+# 这里设置为空，避免与 starship 冲突
+ZSH_THEME=""
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# 更新行为
+zstyle ':omz:update' mode reminder
+zstyle ':omz:update' frequency 13
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+# 插件配置
 plugins=(
   git
   zsh-autosuggestions
@@ -85,70 +23,157 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# ============================================
+# 环境变量
+# ============================================
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# 语言环境
+export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# 编辑器
+export EDITOR='vim'
+export VISUAL='vim'
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+# PATH 配置
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
+# MySQL（如果使用 Homebrew 安装的 MySQL）
+# export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# JDK, I am currently using brew to manage JDK. (trying brew to version-control right now)
-# export JAVA_HOME=~/jdk/default/Contents/Home
-# export PATH=$JAVA_HOME/bin:$PATH:.
-# export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
-# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-# Initialize starship, The minimal, blazing-fast, and infinitely customizable prompt for any shell!
-# brew install starship
-eval "$(starship init zsh)"
-
-# Disable auto-setting of 'packageManager' when corepack is enabled.
+# Node.js Corepack
 export COREPACK_ENABLE_AUTO_PIN=0
 
-# This is a small command-line program for OS X that moves files or folders to the trash.
-# install: brew install trash
-# repo: https://github.com/ali-rantakari/trash
-# I think I should have received enough lessons. :(
+# ============================================
+# 开发工具配置
+# ============================================
+
+# Java（通过 Homebrew 管理）
+# 如需切换版本，使用：brew install openjdk@17
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# export PATH="$JAVA_HOME/bin:$PATH"
+
+# Maven
+export M2_HOME="/opt/homebrew/opt/maven"
+export PATH="$M2_HOME/bin:$PATH"
+
+# Go（如果安装）
+# export GOPATH="$HOME/go"
+# export PATH="$GOPATH/bin:$PATH"
+
+# ============================================
+# 别名配置
+# ============================================
+
+# 安全起见，用 trash 替代 rm
 alias rm="trash"
 
-# -------------------------------- #
-# Directories
-#
-# I put
-# `~/projects/i` for my projects
-# `~/projects/r` for reproductions
-# -------------------------------- #
+# 常用目录快捷跳转
+alias projects="cd ~/projects"
+alias i="cd ~/projects/i"
+alias r="cd ~/projects/r"
+alias dl="cd ~/Downloads"
+alias doc="cd ~/Documents"
 
-function i() {
-  cd ~/projects/i/$1
+# 开发相关
+alias ll="ls -la"
+alias la="ls -A"
+alias l="ls -CF"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Git 快捷别名（详见 .gitconfig）
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gl="git pull"
+alias gd="git diff"
+alias glog="git log --oneline --graph --decorate"
+
+# Maven 快捷命令
+alias mvn-clean="mvn clean"
+alias mvn-build="mvn clean package -DskipTests"
+alias mvn-test="mvn test"
+alias mvn-run="mvn spring-boot:run"
+
+# npm 快捷命令
+alias ni="npm install"
+alias nid="npm install --save-dev"
+alias nr="npm run"
+alias ns="npm start"
+alias nt="npm test"
+
+# Docker 快捷命令
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dc="docker compose"
+alias dcup="docker compose up -d"
+alias dcdown="docker compose down"
+alias dclogs="docker compose logs -f"
+
+# ============================================
+# 函数定义
+# ============================================
+
+# 快速创建并进入目录
+function mkcd() {
+  mkdir -p "$1" && cd "$1"
 }
 
-function repros() {
-  cd ~/projects/r/$1
+# 快速查找文件
+function ff() {
+  find . -name "*$1*" -type f
 }
 
-function dir() {
-  mkdir -p $1 && cd $1
+# 快速查找目录
+function fd() {
+  find . -name "*$1*" -type d
 }
+
+# 查看端口占用
+function port() {
+  lsof -i :"$1"
+}
+
+# 快速启动 HTTP 服务器
+function serve() {
+  local port="${1:-8000}"
+  python3 -m http.server "$port"
+}
+
+# Git 快速提交
+function gac() {
+  git add -A && git commit -m "$1"
+}
+
+# Git 快速推送
+function gacp() {
+  git add -A && git commit -m "$1" && git push
+}
+
+# ============================================
+# 工具初始化
+# ============================================
+
+# Starship 提示符（现代化、快速、可定制）
+eval "$(starship init zsh)"
+
+# nvm（Node 版本管理，如果安装）
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# pyenv（Python 版本管理，如果安装）
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# ============================================
+# 本地配置（可选）
+# ============================================
+
+# 如果有本地特定配置，可以放在 ~/.zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

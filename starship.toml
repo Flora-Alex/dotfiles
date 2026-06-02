@@ -1,0 +1,121 @@
+# Starship 配置文件
+# 文档：https://starship.rs/zh-CN/config/
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Prompt 格式
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$nodejs\
+$c\
+$cpp\
+$golang\
+$java\
+$python\
+$docker_context\
+$line_break\
+$character"""
+
+#用户名配置
+[username]
+show_always = true
+style_user = "bold orange"
+style_root = "bold orange"
+
+# 字符提示符配置
+[character]
+success_symbol = "[ ](bold green)"
+error_symbol = "[✗ ](bold red)"
+vimcmd_symbol = '[ ](bold green)'
+vimcmd_replace_one_symbol = '[ ](bold purple)'
+vimcmd_replace_symbol = '[ ](bold purple)'
+vimcmd_visual_symbol = '[ ](bold yellow)'
+
+# 目录配置
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bold cyan"
+
+# Git 分支配置
+[git_branch]
+symbol = ' '
+style = "bold purple"
+truncation_length = 32
+truncation_symbol = "…"
+
+# Git 状态配置
+[git_status]
+style = "bold red"
+modified = " [~](bold yellow)"
+staged = "[+](bold green)"
+untracked = "[?](bold blue)"
+deleted = "[-](bold red)"
+ahead = "[⇡${count}](bold green)"
+behind = "[⇣${count}](bold red)"
+diverged = "[⇡${ahead_count}⇣${behind_count}](bold yellow)"
+
+# Git 状态（rebase 等）
+[git_state]
+style = "bold yellow"
+
+# Node.js 配置
+[nodejs]
+symbol = ' '
+style = "bold green"
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
+[c]
+symbol = " "
+style = "bold blue"
+
+[cpp]
+symbol = " "
+style = "bold blue"
+
+# GO 语言配置
+[golang]
+symbol = ""
+style = "bold blue"
+detect_extensions = ['go']
+detect_files = ['go.mod', 'go.sum', 'go.work', 'glide.yaml', 'Gopkg.yml', 'Gopkg.lock', '.go-version']
+
+# Java 配置
+[java]
+symbol = ' '
+style = "bold red"
+detect_extensions = ["java", "class", "jar", "kt", "kts"]
+detect_files = ["pom.xml", "build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts"]
+detect_folders = [".mvn"]
+
+# Python 配置
+[python]
+symbol = ' '
+style = "bold yellow"
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", "Pipfile"]
+
+# Docker 配置
+[docker_context]
+symbol = ' '
+style = "bold blue"
+detect_extensions = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
+
+# 命令执行时间
+[cmd_duration]
+min_time = 2_000
+style = "bold yellow"
+format = "took [$duration]($style) "
+
+# Shell 配置
+[shell]
+disabled = false
+

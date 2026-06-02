@@ -1,0 +1,176 @@
+# ============================================
+# Flora's Global Gitignore
+# ============================================
+
+# macOS 系统文件
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# IDE 和编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+.factorypath
+*.iml
+*.ipr
+*.iws
+out/
+.gradle/
+build/
+
+# JetBrains 系列
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+Session.vim
+.netrwhist
+tags
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot
+*.pid
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+.npm
+.eslintcache
+.stylelintcache
+
+# 构建产物
+dist/
+build/
+out/
+output/
+*.tgz
+
+# 环境变量和密钥
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.crt
+*.p12
+
+# 日志文件
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+*.lcov
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# 数据库
+*.sqlite
+*.sqlite3
+*.db
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# 文档构建
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.bookmarks/
